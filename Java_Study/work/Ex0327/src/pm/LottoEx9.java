@@ -17,9 +17,11 @@ public class LottoEx9 {
 				lotto[i] = (int)(Math.random()*45+1);
 				boolean abundanted = false;
 				// 중복 체크
-				for (int j=0; j<i; j++) {
-					if (lotto[i] == lotto[j])
+				for (int j=0; j<i; j++) { // i보다 작은 index 만큼
+					if (lotto[i] == lotto[j]) {
 						abundanted = true;
+						break;
+					}
 				}
 				// 중복이 안되면 넘긴다.
 				if (!abundanted)
@@ -43,7 +45,6 @@ public class LottoEx9 {
 			}
 			System.out.println();
 		}
-		
 		System.out.println(errorFlag);
 	}
 
