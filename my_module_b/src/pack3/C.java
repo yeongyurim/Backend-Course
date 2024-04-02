@@ -1,4 +1,4 @@
-package my_module_b;
+package pack3;
 
 public class C {
 	// 메소드 선언
