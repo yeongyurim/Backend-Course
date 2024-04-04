@@ -9,15 +9,29 @@ package ch12.sec12;
  */
 
 /*
- * 어노테이션 적용대상
- * 어느테이션
+ * 어노테이션 유지정책
+ * SOURCE 컴파일할 때 적용 컴파일된 후에 제거됨
+ * CLASS 메모리로 로딩할 때 적용 메모리로 로딩된 후에 제거됨
+ * RUNTIME 실행할 때 적용
+ */
+
+/*
+ * 어노테이션 설정 정보 이용
+ * boolean isAnnotationPresent(AnnotationName.class) 지정한 어노테이션이 적용되었는지 여부
+ * Annotation getAnnotation(AnnotationName.class) 지정한 어노테이션이 적용되어 있으면 어노테이션을 리턴하고, 그렇지 않다면 null을 리턴
+ * Annotation[] getDeclaredAnnotations() 적용된 모든 어노테이션을 리턴
  */
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-
-@Target{ElementType.
-public class PrintAnnotation {
-
+/*
+ * 적용대상: METHOD
+ * 유지정책: RUNTIME
+ */
+@Target({ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface PrintAnnotation {
+	String value() default "-"; // 값을 초기화하지 않으면 default값으로 설정
+	int number() default 15;
 }
