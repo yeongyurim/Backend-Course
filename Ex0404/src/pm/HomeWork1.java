@@ -38,7 +38,7 @@ public class HomeWork1 extends JFrame {
 				} else {
 					jp.setLayout(new FlowLayout(FlowLayout.CENTER));
 				}
-				jp.revalidate();
+				jp.updateUI();
 			}
 		};
 		

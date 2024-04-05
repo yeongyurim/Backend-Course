@@ -11,41 +11,56 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
-
+// 더블 버퍼링
 // 내부 클래스 장점 : 외부 클래스의 멤버에  자유로운 점근가능
 public class HomeWork2 extends JFrame {
 
-	int x , y , wh;
+	class Ball {
+		int x, y, wh;
+		
+		Ball(int x, int y, int wh) {
+			this.x = x;
+			this.y = y;
+			this.wh = wh;
+		}
+		
+		public void addX(int x) {
+			this.x += x;
+		}
+		
+		public void addY(int y) {
+			this.y += y;
+		}
+	};
+	
 	int code = KeyEvent.VK_1;
 	
 	Canvas can;
 	
 	public HomeWork2() {
 		// 좌표 및 크기 초기 설정
-		wh = 30;
-		x = 200 - wh/2;
-		y = 300 - wh/2;
+		Ball ball = new Ball(200- 30/2, 250-30/2, 30);
 		
 		// canvas 클래스 무명 객체 초기화
 		can = new Canvas() {
 			@Override
 			public void paint(Graphics g) {
 				g.setColor(Color.blue);
-				g.fillOval(x, y, wh, wh);
+				g.fillOval(ball.x, ball.y, ball.wh, ball.wh);
 				
 				// 키 입력 값 분기
 				switch(code) {
 					case KeyEvent.VK_LEFT :
-						x -= 10;
+						ball.addX(-10);
 						break;
 					case KeyEvent.VK_RIGHT :
-						x += 10;
+						ball.addX(10);
 						break;
 					case KeyEvent.VK_UP :
-						y -= 10;
+						ball.addY(-10);
 						break;
 					case KeyEvent.VK_DOWN :
-						y += 10;
+						ball.addY(+10);
 						break;
 				}
 			}
@@ -75,6 +90,7 @@ public class HomeWork2 extends JFrame {
 			}
 		});
 	}
+	
 	public static void main(String[] args) {
 		new HomeWork2();
 	}
