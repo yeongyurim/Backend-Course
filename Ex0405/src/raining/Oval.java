@@ -39,6 +39,6 @@ public class Oval extends Thread {
 				// TODO: handle exception
 			}
 		}
-		\
+		
 	}
 }
