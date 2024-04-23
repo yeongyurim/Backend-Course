@@ -25,7 +25,7 @@ public class ParallelStreamExample {
 		list.add("박병렬");
 		
 		// 병렬 처리
-		Stream<String> parallelStream = list.parallelStream();
+		Stream<String> parallelStream = list.parallelStream(); // 병렬 스트림 얻기
 		parallelStream.forEach(name -> {
 			System.out.println(name + ": " + Thread.currentThread().getName());
 		});
